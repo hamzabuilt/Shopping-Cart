@@ -2,7 +2,7 @@ import { useOutletContext } from "react-router-dom";
 import CartItem from "../components/CartItem.jsx";
 
 export default function Cart() {
-  const { cart } = useOutletContext();
+  const { cart, deleteItemFromCart } = useOutletContext();
 
   return (
     <>
@@ -13,6 +13,7 @@ export default function Cart() {
           name={item.name}
           emoji={item.emoji}
           quantity={item.quantity}
+          deleteItem={() => deleteItemFromCart(item)}
         />
       ))}
     </>

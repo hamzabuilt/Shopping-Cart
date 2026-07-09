@@ -1,4 +1,10 @@
-export default function CartItem({ category, name, emoji, quantity }) {
+export default function CartItem({
+  category,
+  name,
+  emoji,
+  quantity,
+  deleteItem,
+}) {
   return (
     <>
       <div className="cart-item">
@@ -6,7 +12,7 @@ export default function CartItem({ category, name, emoji, quantity }) {
         <p>{category}</p>
         <p>{name}</p>
         <p>{quantity}</p>
-        <button>Remove</button>
+        <button onClick={deleteItem}>Remove</button>
       </div>
     </>
   );
