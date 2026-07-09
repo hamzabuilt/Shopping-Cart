@@ -35,21 +35,28 @@ function App() {
   }
 
   return (
-    <>
-      <nav className="nav-area">
-        <Link to="/">Home</Link>
-        <Link to="/shop">Shop</Link>
-        <div>
-          <Link to="/cart">Cart</Link>
-          <div className="num-cart-badge">{totalItems}</div>
+    <div className="app-layout">
+      <nav className="app-header">
+        <Link to="/" className="app-header__link">
+          Home
+        </Link>
+        <Link to="/shop" className="app-header__link">
+          Shop
+        </Link>
+        <div className="app-header cart-widget">
+          <Link to="/cart" className="app-header__link">
+            Cart
+          </Link>
+          <span className="app-header__badge">{totalItems}</span>
         </div>
       </nav>
-      <main className="content-area">
+
+      <main className="app-main">
         <Outlet
           context={{ cart, setCart, addItemToCart, deleteItemFromCart }}
         />
       </main>
-    </>
+    </div>
   );
 }
 

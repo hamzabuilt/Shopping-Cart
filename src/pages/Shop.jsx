@@ -12,7 +12,7 @@ export default function Shop() {
   }));
 
   return (
-    <>
+    <section className="shop-section">
       {items.map((item) => {
         const itemInCart = cart.find((c) => c.name === item.name);
         const initialQuantity = itemInCart ? itemInCart.quantity : 0;
@@ -28,6 +28,6 @@ export default function Shop() {
           />
         );
       })}
-    </>
+    </section>
   );
 }

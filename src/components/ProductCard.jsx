@@ -11,15 +11,21 @@ export default function ProductCard({
 
   return (
     <div className="product-card">
-      <p>{emoji}</p>
-      <p>{category}</p>
-      <p>{name}</p>
-      <input
-        type="number"
-        value={count}
-        onChange={(e) => setCount(e.target.value)}
-      />
-      <button onClick={() => addItem(count)}>Add</button>
+      <span className="product-car__emoji">{emoji}</span>
+      <span className="product-card__category">{category}</span>
+      <h3 className="product-card__name">{name}</h3>
+      <div className="product-card__actions">
+        <input
+          className="product-card__input"
+          type="number"
+          min="0"
+          value={count}
+          onChange={(e) => setCount(e.target.value)}
+        />
+        <button className="product-card__btn" onClick={() => addItem(count)}>
+          Add
+        </button>
+      </div>
     </div>
   );
 }
