@@ -1,23 +1,31 @@
 import ProductCard from "../components/ProductCard.jsx";
 import itemsData from "../services/items.json";
+import { useOutletContext } from "react-router-dom";
 
 export default function Shop() {
+  const { cart, setCart } = useOutletContext();
+
   const items = itemsData.map((item) => ({
-    id: crypto.randomUUID(),
     category: item.category,
     name: item.name,
     emoji: item.emoji,
   }));
 
+  function addItemToCart(item) {
+    setCart((prevCart) => [...prevCart, item]);
+    console.log(cart);
+  }
+
   return (
     <>
       {items.map((item) => (
         <ProductCard
-          key={item.id}
-          id={item.id}
+          key={item.name}
           category={item.category}
           name={item.name}
           emoji={item.emoji}
+          quantity={item.quantity}
+          addItem={(count) => addItemToCart({ ...item, quantity: count })}
         />
       ))}
     </>

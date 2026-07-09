@@ -1,9 +1,9 @@
 import "./App.css";
 import { Link, Outlet } from "react-router-dom";
-// import { useState } from "react";
+import { useState } from "react";
 
 function App() {
-  // const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([]);
 
   return (
     <>
@@ -13,10 +13,7 @@ function App() {
         <Link to="/cart">Cart</Link>
       </nav>
       <main className="content-area">
-        <Outlet />
-        {/* TODO: HOW TO USE CONTEXT TO PASS PROPS INTO THE 
-                  <OUTLET /> TO ALLOW OTHER PAGES TO 
-                  USE AND UPDATE DATA */}
+        <Outlet context={{ cart, setCart }} />
       </main>
     </>
   );
