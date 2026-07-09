@@ -3,7 +3,7 @@ import itemsData from "../services/items.json";
 import { useOutletContext } from "react-router-dom";
 
 export default function Shop() {
-  const { cart, setCart } = useOutletContext();
+  const { setCart } = useOutletContext();
 
   const items = itemsData.map((item) => ({
     category: item.category,
@@ -13,7 +13,6 @@ export default function Shop() {
 
   function addItemToCart(item) {
     setCart((prevCart) => [...prevCart, item]);
-    console.log(cart);
   }
 
   return (

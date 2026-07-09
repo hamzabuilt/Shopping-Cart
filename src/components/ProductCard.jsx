@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-export default function ProductCard({ id, category, name, emoji, addItem }) {
+export default function ProductCard({ category, name, emoji, addItem }) {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="product-card" key={id}>
+    <div className="product-card">
       <p>{emoji}</p>
       <p>{category}</p>
       <p>{name}</p>
