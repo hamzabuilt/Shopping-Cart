@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const totalItems = cart.length;
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   function deleteItemFromCart(item) {
     setCart((prevCart) => prevCart.filter((i) => i.name !== item.name));
@@ -18,15 +18,18 @@ function App() {
     if (existingItem) {
       setCart((prevCart) =>
         prevCart.map((cartItem) =>
-          cartItem.name == newItem.name
-            ? { ...cartItem, quantity: newItem.quantity }
+          cartItem.name === newItem.name
+            ? {
+                ...cartItem,
+                quantity: cartItem.quantity + Number(newItem.quantity),
+              }
             : cartItem,
         ),
       );
     } else {
       setCart((prevCart) => [
         ...prevCart,
-        { ...newItem, quantity: newItem.quantity },
+        { ...newItem, quantity: Number(newItem.quantity) },
       ]);
     }
   }
