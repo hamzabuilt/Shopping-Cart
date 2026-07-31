@@ -11,7 +11,7 @@ export default function ProductCard({
 
   return (
     <div className="product-card">
-      <span className="product-car__emoji">{emoji}</span>
+      <span className="product-card__emoji">{emoji}</span>
       <span className="product-card__category">{category}</span>
       <h3 className="product-card__name">{name}</h3>
       <div className="product-card__actions">

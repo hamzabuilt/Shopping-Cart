@@ -1,5 +1,23 @@
+:root {
+  --bg-dark: #111827;
+  --bg-card: #1f2937;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --danger: #ef4444;
+  --border: #374151;
+  --radius: 12px;
+  --transition: 0.2s ease;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
 }
