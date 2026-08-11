@@ -1,10 +1,7 @@
-export default function CartItem({
-  category,
-  name,
-  emoji,
-  quantity,
-  deleteItem,
-}) {
+import { useCart } from "../services/CartContext";
+
+export default function CartItem({ category, name, emoji, quantity }) {
+  const { deleteItemFromCart } = useCart();
   return (
     <div className="cart-item">
       <span className="cart-item__emoji">{emoji}</span>
@@ -15,7 +12,7 @@ export default function CartItem({
       <div className="cart-item__quantity">
         Qty: <span>{quantity}</span>
       </div>
-      <button className="cart-item__btn-remove" onClick={deleteItem}>
+      <button className="cart-item__btn-remove" onClick={() => deleteItemFromCart({ name })}>
         Remove
       </button>
     </div>

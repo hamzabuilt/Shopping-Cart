@@ -1,13 +1,9 @@
 import { useState } from "react";
+import { useCart } from "../services/CartContext";
 
-export default function ProductCard({
-  category,
-  name,
-  emoji,
-  initialQuantity,
-  addItem,
-}) {
+export default function ProductCard({ category, name, emoji, initialQuantity }) {
   const [count, setCount] = useState(initialQuantity);
+  const { addItemToCart } = useCart();
 
   return (
     <div className="product-card">
@@ -22,7 +18,7 @@ export default function ProductCard({
           value={count}
           onChange={(e) => setCount(e.target.value)}
         />
-        <button className="product-card__btn" onClick={() => addItem(count)}>
+        <button className="product-card__btn" onClick={() => addItemToCart({ category, name, emoji, quantity: count })}>
           Add
         </button>
       </div>
